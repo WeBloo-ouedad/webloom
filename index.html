@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WeBloom</title>
@@ -86,6 +87,22 @@
     <h1>
       <img src="earring.png" alt="Earring left" class="earring-icon" />
       <span class="sparkle-text">WeBloom</span>
+      .sparkle-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  color: #FFD700;
+  text-shadow: 0 0 5px #FFD700, 0 0 10px #ffecb3, 0 0 15px #f7e58b;
+  animation: sparkle 2s infinite alternate;
+}
+
+@keyframes sparkle {
+  0% {
+    text-shadow: 0 0 5px #FFD700, 0 0 10px #ffecb3, 0 0 15px #f7e58b;
+  }
+  100% {
+    text-shadow: 0 0 10px #f9e79f, 0 0 20px #f7dc6f, 0 0 30px #f1c40f;
+  }
+}
       <img src="earring.png" alt="Earring right" class="earring-icon" />
     </h1>
   </header>
