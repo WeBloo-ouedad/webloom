@@ -57,3 +57,10 @@ footer {
   font-size: 0.9em;
   border-top: 4px solid #d4af37;
 }
+.earring-icon {
+  width: 30px;
+  height: auto;
+  vertical-align: middle;
+  margin: 0 10px;
+  filter: drop-shadow(0 0 3px #FFD700) drop-shadow(0 0 6px #FFD700);
+}
