@@ -7,29 +7,75 @@
     <img src="earring.png" alt="Earring right" class="earring-icon">
   </h1>
 </header>
-<body>
-  <section id="herbs" style="padding: 40px 20px; background: #f4f9f4;">
-  <h2 style="color: #2a5d34; text-shadow: 0 0 5px #d4af37;">Herbs 🌿</h2>
+<body> 
+<style>
+  .collapsible {
+    background-color: #2a5d34;
+    color: #d4af37;
+    cursor: pointer;
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(212,175,55,0.5);
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #3c763d;
+  }
+  
+  .content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #f4f9f4;
+    transition: max-height 0.3s ease-out;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 20px;
+  }
+
+  .content p, .content img {
+    color: #2a5d34;
+    margin: 15px 0;
+  }
+</style>
+
+<button class="collapsible">Herbs 🌿</button>
+<div class="content">
   <p>As a Moroccan, mint has a special place in our hearts—whether in tea or just hot water.</p>
   <p>Keep it simple and enjoy it in everyday ways!</p>
-  <img src="mint-tea.jpg" alt="Mint tea in a glass cup" style="max-width:300px; display:block; margin: 20px 0;">
-</section>
+  <img src="mint-tea.jpg" alt="Mint tea in a glass cup" style="max-width:300px;">
+</div>
 
-<section id="nutrition" style="padding: 40px 20px; background: #e6f0e6;">
-  <h2 style="color: #2a5d34; text-shadow: 0 0 5px #d4af37;">Nutrition 🥗</h2>
+<button class="collapsible">Nutrition 🥗</button>
+<div class="content">
   <p>Discover healthy eating tips and nourishing recipes to support your wellbeing.</p>
-</section>
+</div>
 
-<section id="selfcare" style="padding: 40px 20px; background: #f4f9f4;">
-  <h2 style="color: #2a5d34; text-shadow: 0 0 5px #d4af37;">Self Care 💆‍♀️</h2>
-  <h3 style="color: #3c763d;">Hair & Skin Care</h3>
+<button class="collapsible">Self Care 💆‍♀️</button>
+<div class="content">
   <p>Simple, natural ways to take care of your hair and skin every day.</p>
-</section>
-  <header>
-    <h1>Welcome to WeBloom 🌿</h1>
-    <p>By Ouedad – A Moroccan space for natural living, nutrition, herbs & self-care</p>
-  </header>
+</div>
 
+<script>
+  const collapsibles = document.querySelectorAll(".collapsible");
+  collapsibles.forEach(button => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("active");
+      const content = button.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } 
+    });
+  });
+</script>
   <main>
     <section>
       <h2>✨ About This Site</h2>
