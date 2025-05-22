@@ -1,112 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<header>
-  <h1>
-    <img src="earring.png" alt="Earring left" class="earring-icon">
-    <span class="sparkle-text">WeBloom</span>
-    <img src="earring.png" alt="Earring right" class="earring-icon">
-  </h1>
-</header>
-<body> 
-<style>
-  .collapsible {
-    background-color: #2a5d34;
-    color: #d4af37;
-    cursor: pointer;
-    padding: 15px 20px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(212,175,55,0.5);
-    margin-bottom: 5px;
-    border-radius: 5px;
-  }
-  
-  .active, .collapsible:hover {
-    background-color: #3c763d;
-  }
-  
-  .content {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    background-color: #f4f9f4;
-    transition: max-height 0.3s ease-out;
-    border-radius: 0 0 5px 5px;
-    margin-bottom: 20px;
-  }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WeBloom</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #2a5d34;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    header h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #2a5d34;
+      text-shadow: 0 0 10px #d4af37;
+    }
+    .earring-icon {
+      height: 40px;
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+    #about {
+      padding: 40px 20px;
+      background: #f4f9f4;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(212,175,55,0.3);
+    }
+    .collapsible {
+      background-color: #2a5d34;
+      color: #d4af37;
+      cursor: pointer;
+      padding: 15px 20px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(212,175,55,0.5);
+      margin-bottom: 5px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .active, .collapsible:hover {
+      background-color: #3c763d;
+    }
+    .content {
+      padding: 20px;
+      max-height: 0;
+      overflow: hidden;
+      background-color: #f4f9f4;
+      transition: max-height 0.3s ease-out;
+      border-radius: 0 0 5px 5px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 8px #d4af37;
+    }
+    .content p {
+      margin: 15px 0;
+    }
+    .content img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 8px #2a5d34;
+      margin: 15px 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #556b2f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="earring.png" alt="Earring left" class="earring-icon" />
+      <span class="sparkle-text">WeBloom</span>
+      <img src="earring.png" alt="Earring right" class="earring-icon" />
+    </h1>
+  </header>
 
-  .content p, .content img {
-    color: #2a5d34;
-    margin: 15px 0;
-  }
-</style>
+  <section id="about">
+    <h2 style="text-shadow: 0 0 5px #d4af37;">About This Site</h2>
+    <p>Welcome to Webloom! This site is your cozy spot for everything about herbs, nutrition, and self-care.</p>
+  </section>
 
-<button class="collapsible">Herbs 🌿</button>
-<div class="content">
-  <p>As a Moroccan, mint has a special place in our hearts—whether in tea or just hot water.</p>
-  <p>Keep it simple and enjoy it in everyday ways!</p>
-  <img src="mint-tea.jpg" alt="Mint tea in a glass cup" style="max-width:300px;">
-</div>
+  <button class="collapsible">Herbs 🌿</button>
+  <div class="content">
+    <h3 style="color: #2a5d34;">Latest Article: Moroccan Mint Tea</h3>
+    <p>As a Moroccan, mint has a special place in our hearts—whether in tea or just hot water.</p>
+    <p>Keep it simple and enjoy it everyday.</p>
+    <img src="mint-tea.jpg" alt="Mint tea in a glass cup" />
+    <p>
+      Moroccan mint isn’t just a tea — it’s a hug in a cup! Sip it hot, laugh a little, and remember: <em>mint to be</em> is real. 😄🍃
+    </p>
+    <img src="funny-mint-meme.jpg" alt="Funny mint meme" style="width: 250px; box-shadow: 0 0 6px #a4c639;" />
+  </div>
 
-<button class="collapsible">Nutrition 🥗</button>
-<div class="content">
-  <p>Discover healthy eating tips and nourishing recipes to support your wellbeing.</p>
-</div>
+  <button class="collapsible">Nutrition 🥗</button>
+  <div class="content">
+    <p>Discover healthy eating tips and nourishing recipes to support your wellbeing.</p>
+  </div>
 
-<button class="collapsible">Self Care 💆‍♀️</button>
-<div class="content">
-  <p>Simple, natural ways to take care of your hair and skin every day.</p>
-</div>
+  <button class="collapsible">Self Care 💆‍♀️</button>
+  <div class="content">
+    <p>Simple, natural ways to take care of your hair and skin every day.</p>
+  </div>
 
-<script>
-  const collapsibles = document.querySelectorAll(".collapsible");
-  collapsibles.forEach(button => {
-    button.addEventListener("click", () => {
-      button.classList.toggle("active");
-      const content = button.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } 
+  <script>
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        const content = button.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
     });
-  });
-</script>
-  <main>
-    <section>
-      <h2>✨ About This Site</h2>
-      <p>This is your gentle corner of the web where you’ll find helpful tips on herbs, nutrition, and self-care. Everything I share is inspired by nature and wellness practices from Morocco and beyond.</p>
-    </section>
+  </script>
 
-    <section>
-      <h2>🌱 Latest Article</h2>
-      <p> The healing benefits of mint 🍃</p>
-    </section>
-  </main>
-  
-<section id="mint-tea" style="font-family: 'Arial', sans-serif; max-width: 600px; margin: 20px auto; padding: 15px; background: #e6f0e6; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-  <h2 style="color: #2a5d34;">Mint Tea Magic 🌿✨</h2>
-  <p style="font-size: 1.1rem; color: #3c763d;">
-    Moroccan mint isn’t just a tea — it’s a hug in a cup!  
-    Sip it hot, laugh a little, and remember: <em>mint to be</em> is real. 😄🍃
-  </p>
-  <div style="text-align: center; margin: 20px 0;">
-    <img src="mint-hot-water.jpg" alt="Fresh mint in hot water" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 0 8px #2a5d34;">
-  </div>
-  <p style="font-size: 0.9rem; color: #556b2f; font-style: italic;">
-    (P.S. If mint tea had a dating profile, it’d say: “Refreshing, a little spicy, and guaranteed to make you smile!”)
-  </p>
-  <div style="text-align:center; margin-top: 15px;">
-    <img src="funny-mint-meme.jpg" alt="Funny mint meme" style="width: 250px; border-radius: 8px; box-shadow: 0 0 6px #a4c639;">
-  </div>
-</section>
   <footer>
     <p>© 2025 WeBloom by Ouedad</p>
   </footer>
 </body>
 </html>
-
