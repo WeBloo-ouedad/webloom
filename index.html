@@ -3,84 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WeBloom</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+  <title>WeBloom - Herbs, Nutrition & Self Care</title>
 
+  <style>
+    /* General styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background: #f4f9f4;
       margin: 0;
-      padding: 0;
-      background-color: #f4f9f4;
+      padding: 20px;
       color: #2a5d34;
     }
 
-    header {
+    header h1 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 3.5rem;
       text-align: center;
-      padding: 40px 20px 20px;
-      background: linear-gradient(to right, #2a5d34, #d4af37);
-      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.5);
-      position: relative;
-    }
-
-    /* Sparkle animation for text */
-    .sparkle-text {
-      font-family: 'Sacramento', cursive;
-      font-size: 4rem;
-      font-weight: normal;
-      color: #d4af37; /* golden */
-      background: linear-gradient(90deg, #2a5d34 0%, #d4af37 50%, #2a5d34 100%);
-      background-size: 200% 100%;
-      background-position: 100% 0;
+      background: linear-gradient(45deg, #d4af37, #2a5d34);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shimmer 3s infinite;
-      display: inline-block;
       position: relative;
+      margin-bottom: 40px;
       user-select: none;
     }
 
-    @keyframes shimmer {
-      0% {
-        background-position: 100% 0;
-      }
-      50% {
-        background-position: 0 0;
-      }
-      100% {
-        background-position: 100% 0;
-      }
+    /* Sparkle animation */
+    @keyframes sparkle {
+      0%, 100% { text-shadow: 0 0 8px #d4af37; }
+      50% { text-shadow: 0 0 20px #fff, 0 0 30px #d4af37; }
     }
 
-    /* About Me section */
-    #about-me {
-      max-width: 700px;
-      margin: 20px auto 40px;
-      background: #e6f0e6;
-      border-radius: 12px;
-      padding: 20px 30px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      font-size: 1.1rem;
-      color: #3c763d;
-      line-height: 1.6;
-      text-align: center;
+    .sparkle-text {
+      animation: sparkle 2.5s infinite ease-in-out;
+      display: inline-block;
     }
 
-    /* Collapsible Buttons */
+    /* Collapsible button style */
     .collapsible {
       background-color: #2a5d34;
       color: #d4af37;
       cursor: pointer;
       padding: 15px 20px;
-      width: 90%;
-      max-width: 700px;
-      margin: 0 auto 10px;
+      width: 100%;
       border: none;
       text-align: left;
       outline: none;
       font-size: 20px;
       font-weight: bold;
       box-shadow: 0 4px 6px rgba(212,175,55,0.5);
+      margin-bottom: 5px;
       border-radius: 5px;
       user-select: none;
       transition: background-color 0.3s ease;
@@ -91,73 +62,112 @@
     }
 
     .content {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      padding: 0 20px;
+      padding: 15px 20px;
       max-height: 0;
       overflow: hidden;
-      background-color: #f4f9f4;
+      background-color: #e6f0e6;
       transition: max-height 0.3s ease-out;
       border-radius: 0 0 5px 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+      box-shadow: 0 0 8px #2a5d34;
     }
 
     .content p {
-      margin: 15px 0;
+      margin: 12px 0;
       color: #2a5d34;
+      line-height: 1.5;
     }
 
     .content img {
-      max-width: 100%;
+      max-width: 300px;
       border-radius: 8px;
-      box-shadow: 0 0 8px #2a5d34;
-      margin: 15px 0;
+      box-shadow: 0 0 6px #a4c639;
       display: block;
+      margin: 15px auto;
+    }
+
+    /* Symptom buttons */
+    #symptom-buttons {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .symptom-btn {
+      background-color: #d4af37;
+      border: none;
+      padding: 10px 18px;
+      color: #2a5d34;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 8px #d4af37aa;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    .symptom-btn:hover {
+      background-color: #c29c2d;
+    }
+
+    #herb-suggestions {
+      margin-top: 20px;
+      background: #f0f7f0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #2a5d34aa;
+      color: #2a5d34;
+      max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     footer {
       text-align: center;
-      padding: 20px 10px;
-      color: #777;
-      font-size: 0.9rem;
-      border-top: 1px solid #ddd;
+      color: #556b2f;
       margin-top: 40px;
+      font-style: italic;
+      font-size: 0.9rem;
     }
+
   </style>
 </head>
 <body>
+
   <header>
     <h1 class="sparkle-text">WeBloom</h1>
   </header>
 
-  <section id="about-me">
+  <section id="about" style="max-width: 700px; margin: 0 auto 40px auto; text-align:center;">
+    <h2 style="color: #2a5d34; text-shadow: 0 0 5px #d4af37;">About This Site</h2>
     <p>
-      Hi! I'm just someone who loves to explore herbs, natural care, and simple healthy living.<br/>
-      This space is my way of sharing what I know — from little tips passed down in Morocco to things I've tried myself — with anyone out there searching for gentle, natural solutions.<br/>
-      I'm not here to promise miracles, just to offer honest help and good vibes 🌿💛
+      Hi! I’m Ouedad, and I’m here to share what I know with anyone searching for simple, natural solutions.
+      Let’s explore herbs, nutrition, and self-care together — inspired by Moroccan wisdom and love for nature.
     </p>
   </section>
 
   <button class="collapsible">Herbs 🌿</button>
   <div class="content">
+    <p>As a Moroccan, mint has a special place in our hearts — whether in tea or just hot water.</p>
+    <p>Keep it simple and enjoy it!</p>
+    <img src="mint-tea.jpg" alt="Mint tea in a glass cup" />
 
-  <p>As a Moroccan, mint has a special place in our hearts—whether in tea or just hot water.</p>
-  <p>Keep it simple and enjoy it!</p>
-  <img src="mint-tea.jpg" alt="Mint tea in a glass cup" style="max-width:300px;" />
+    <h3 style="color: #2a5d34; margin-top: 30px; text-align:center;">Click on a symptom to see herbal tips:</h3>
 
-  <h3 style="color: #2a5d34; margin-top: 30px;">Click on a symptom to see herbal tips:</h3>
+    <div id="symptom-buttons">
+      <button class="symptom-btn" data-symptom="bloating">Bloating</button>
+      <button class="symptom-btn" data-symptom="stress">Stress</button>
+      <button class="symptom-btn" data-symptom="headache">Headache</button>
+      <button class="symptom-btn" data-symptom="sleep">Sleep Issues</button>
+    </div>
 
-  <div id="symptom-buttons" style="margin-bottom: 20px;">
-    <button class="symptom-btn" data-symptom="bloating">Bloating</button>
-    <button class="symptom-btn" data-symptom="stress">Stress</button>
-    <button class="symptom-btn" data-symptom="headache">Headache</button>
-    <button class="symptom-btn" data-symptom="sleep">Sleep Issues</button>
-  </div>
-
-  <div id="herb-suggestions" style="background:#e6f0e6; padding:15px; border-radius:8px; box-shadow: 0 0 5px #2a5d34;">
-    <p>Select a symptom to see herb suggestions.</p>
+    <div id="herb-suggestions">
+      <p>Select a symptom to see herb suggestions.</p>
+    </div>
   </div>
 
   <button class="collapsible">Nutrition 🥗</button>
@@ -170,7 +180,12 @@
     <p>Simple, natural ways to take care of your hair and skin every day.</p>
   </div>
 
+  <footer>
+    <p>© 2025 WeBloom by Ouedad</p>
+  </footer>
+
   <script>
+    // Collapsible sections toggle
     const collapsibles = document.querySelectorAll(".collapsible");
     collapsibles.forEach(button => {
       button.addEventListener("click", () => {
@@ -183,10 +198,42 @@
         } 
       });
     });
-  </script>
 
-  <footer>
-    <p>© 2025 WeBloom by Ouedad</p>
-  </footer>
-</body>
-</html>
+    // Herb suggestions by symptom
+    const herbData = {
+      bloating: `
+        <h4>Herbs for Bloating:</h4>
+        <ul>
+          <li><strong>Mint:</strong> Soothes the stomach and helps reduce gas.</li>
+          <li><strong>Fennel:</strong> Helps relax digestive muscles.</li>
+          <li><strong>Ginger:</strong> Eases digestion and reduces inflammation.</li>
+        </ul>
+      `,
+      stress: `
+        <h4>Herbs for Stress:</h4>
+        <ul>
+          <li><strong>Lavender:</strong> Calms the mind and body.</li>
+          <li><strong>Chamomile:</strong> Relaxes nerves and promotes calm sleep.</li>
+          <li><strong>Rosemary:</strong> Enhances mental clarity and reduces fatigue.</li>
+        </ul>
+      `,
+      headache: `
+        <h4>Herbs for Headaches:</h4>
+        <ul>
+          <li><strong>Feverfew:</strong> Helps prevent migraines.</li>
+          <li><strong>Peppermint:</strong> Provides cooling relief.</li>
+          <li><strong>Willow Bark:</strong> Natural pain reliever.</li>
+        </ul>
+      `,
+      sleep: `
+        <h4>Herbs for Sleep Issues:</h4>
+        <ul>
+          <li><strong>Valerian Root:</strong> Promotes deep sleep.</li>
+          <li><strong>Passionflower:</strong> Reduces anxiety and insomnia.</li>
+          <li><strong>Chamomile:</strong> Gentle sleep aid.</li>
+        </ul>
+      `
+    };
+
+    document.querySelectorAll('.symptom-btn').forEach(button => {
+      button.addEventListener('
