@@ -2,44 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WeBloom - Herbs, Nutrition & Self Care</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeBloom</title>
   <style>
-    /* General styles */
     body {
-      font-family: 'Arial', sans-serif;
-      background: #f4f9f4;
+      font-family: Arial, sans-serif;
+      background-color: #f9fff9;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .sparkle-title {
+      font-size: 2.5em;
+      background: linear-gradient(90deg, #2a5d34, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Brush Script MT', cursive;
+      animation: sparkle 2s infinite ease-in-out;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { text-shadow: 0 0 4px #d4af37; }
+      50% { text-shadow: 0 0 8px #fff6a9; }
+    }
+
+    section {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
       color: #2a5d34;
     }
 
-    header h1 {
-      font-family: 'Brush Script MT', cursive;
-      font-size: 3.5rem;
-      text-align: center;
-      background: linear-gradient(45deg, #d4af37, #2a5d34);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-      margin-bottom: 40px;
-      user-select: none;
-    }
-
-    /* Sparkle animation */
-    @keyframes sparkle {
-      0%, 100% { text-shadow: 0 0 8px #d4af37; }
-      50% { text-shadow: 0 0 20px #fff, 0 0 30px #d4af37; }
-    }
-
-    .sparkle-text {
-      animation: sparkle 2.5s infinite ease-in-out;
-      display: inline-block;
-    }
-
-    /* Collapsible button style */
-    .collapsible {
+    .collapsible, .sub-collapsible {
       background-color: #2a5d34;
       color: #d4af37;
       cursor: pointer;
@@ -48,242 +52,118 @@
       border: none;
       text-align: left;
       outline: none;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
-      box-shadow: 0 4px 6px rgba(212,175,55,0.5);
       margin-bottom: 5px;
       border-radius: 5px;
-      user-select: none;
-      transition: background-color 0.3s ease;
     }
 
-    .active, .collapsible:hover {
+    .collapsible:hover, .sub-collapsible:hover {
       background-color: #3c763d;
     }
 
-    .content {
-      padding: 15px 20px;
+    .content, .sub-content {
       max-height: 0;
       overflow: hidden;
-      background-color: #e6f0e6;
       transition: max-height 0.3s ease-out;
+      background-color: #f4f9f4;
+      padding: 0 20px;
       border-radius: 0 0 5px 5px;
-      margin-bottom: 25px;
-      box-shadow: 0 0 8px #2a5d34;
+      margin-bottom: 15px;
     }
 
-    .content p {
-      margin: 12px 0;
+    .content p, .sub-content p {
       color: #2a5d34;
-      line-height: 1.5;
-    }
-
-    .content img {
-      max-width: 300px;
-      border-radius: 8px;
-      box-shadow: 0 0 6px #a4c639;
-      display: block;
-      margin: 15px auto;
-    }
-
-    /* Symptom buttons */
-    #symptom-buttons {
-      margin-top: 25px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    .symptom-btn {
-      background-color: #d4af37;
-      border: none;
-      padding: 10px 18px;
-      color: #2a5d34;
-      font-weight: bold;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 0 8px #d4af37aa;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-
-    .symptom-btn:hover {
-      background-color: #c29c2d;
-    }
-
-    #herb-suggestions {
-      margin-top: 20px;
-      background: #f0f7f0;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #2a5d34aa;
-      color: #2a5d34;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1rem;
-      line-height: 1.5;
     }
 
     footer {
       text-align: center;
-      color: #556b2f;
-      margin-top: 40px;
-      font-style: italic;
-      font-size: 0.9rem;
+      padding: 20px;
+      background-color: #2a5d34;
+      color: #fff;
     }
-
   </style>
 </head>
 <body>
 
   <header>
-    <h1 class="sparkle-text">WeBloom</h1>
+    <h1 class="sparkle-title">WeBloom</h1>
   </header>
 
-  <section id="about" style="max-width: 700px; margin: 0 auto 40px auto; text-align:center;">
-    <h2 style="color: #2a5d34; text-shadow: 0 0 5px #d4af37;">About This Site</h2>
-    <p>
-      Hi! I’m Ouedad, and I’m here to share what I know with anyone searching for simple, natural solutions.
-      Let’s explore herbs, nutrition, and self-care together — inspired by Moroccan wisdom and love for nature.
-    </p>
+  <section id="about">
+    <h2>🌸 About This Site</h2>
+    <p>I'm here to share what I know with those who are searching for gentle, natural solutions. Inspired by Moroccan tradition and simple living 🌿</p>
   </section>
 
-  <button class="collapsible">Herbs 🌿</button>
-  <div class="content">
-  <style>
-  .sub-collapsible {
-    background-color: #e6f0e6;
-    color: #2a5d34;
-    cursor: pointer;
-    padding: 12px 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 17px;
-    margin-top: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: background-color 0.2s ease;
-  }
+  <section id="herbs">
+    <h2>🌿 Herbs – Click on your concern</h2>
 
-  .sub-collapsible:hover {
-    background-color: #d4efdf;
-  }
+    <button class="collapsible">Bloating & Digestion</button>
+    <div class="content">
+      <button class="sub-collapsible">🍃 Mint</button>
+      <div class="sub-content">
+        <p><strong>What it helps:</strong> Soothes bloating, supports digestion.<br>
+        <strong>How to use:</strong> Brew fresh mint in hot water, drink warm after meals.</p>
+      </div>
 
-  .sub-content {
-    padding: 10px 18px;
-    display: none;
-    background-color: #f4f9f4;
-    border-left: 3px solid #a4c639;
-    margin-bottom: 10px;
-  }
-</style>
+      <button class="sub-collapsible">🌿 Fennel</button>
+      <div class="sub-content">
+        <p><strong>What it helps:</strong> Relieves gas and tummy cramps.<br>
+        <strong>How to use:</strong> Crush seeds, boil in water, and sip slowly.</p>
+      </div>
+    </div>
 
-<h3 style="color:#2a5d34; margin-top:20px;">Click on your concern to find the best herbs and simple tips:</h3>
+    <button class="collapsible">Stress & Sleep</button>
+    <div class="content">
+      <button class="sub-collapsible">🌸 Chamomile</button>
+      <div class="sub-content">
+        <p><strong>What it helps:</strong> Helps you relax and sleep better.<br>
+        <strong>How to use:</strong> Steep dried flowers in hot water for 10 minutes.</p>
+      </div>
 
-<button class="sub-collapsible">Bloating & Digestion</button>
-<div class="sub-content">
-  <p><strong>Herbs:</strong> Mint 🍃, Anise 🌱, Fennel 🌾</p>
-  <p><strong>How to use:</strong> Make a tea with one spoon of herbs, let it sit for 10 mins, and drink warm after meals.</p>
-</div>
+      <button class="sub-collapsible">🌿 Lemon Balm</button>
+      <div class="sub-content">
+        <p><strong>What it helps:</strong> Calms the nerves and eases anxiety.<br>
+        <strong>How to use:</strong> Use fresh or dried leaves as a tea before bed.</p>
+      </div>
+    </div>
 
-<button class="sub-collapsible">Sleep Problems</button>
-<div class="sub-content">
-  <p><strong>Herbs:</strong> Chamomile 🌼, Lavender 💜, Lemon balm 🍋</p>
-  <p><strong>How to use:</strong> Drink before bed, and create a calm bedtime mood 🌙.</p>
-</div>
+    <button class="collapsible">Skin Health</button>
+    <div class="content">
+      <button class="sub-collapsible">🌼 Calendula</button>
+      <div class="sub-content">
+        <p><strong>What it helps:</strong> Soothes irritated skin and promotes healing.<br>
+        <strong>How to use:</strong> Make a tea and use it to rinse the skin or apply as a compress.</p>
+      </div>
 
-<button class="sub-collapsible">Stress & Anxiety</button>
-<div class="sub-content">
-  <p><strong>Herbs:</strong> Verbena 🍃, Basil 🌿, Chamomile 🌼</p>
-  <p><strong>How to use:</strong> Breathe in the steam or drink tea slowly during the day.</p>
-</div>
-
-<button class="sub-collapsible">Period Cramps</button>
-<div class="sub-content">
-  <p><strong>Herbs:</strong> Sage 🌿, Rosemary 🌸, Chamomile 🌼</p>
-  <p><strong>How to use:</strong> Warm tea, twice a day during your cycle. Avoid when pregnant.</p>
-</div>
-
-<script>
-  const subButtons = document.querySelectorAll(".sub-collapsible");
-  subButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const content = button.nextElementSibling;
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    });
-  });
-</script>
-    
-  </div>
-
-  <button class="collapsible">Nutrition 🥗</button>
-  <div class="content">
-    <p>Discover healthy eating tips and nourishing recipes to support your wellbeing.</p>
-  </div>
-
-  <button class="collapsible">Self Care 💆‍♀️</button>
-  <div class="content">
-    <p>Simple, natural ways to take care of your hair and skin every day.</p>
-  </div>
+      <button class="sub-collapsible">🌿 Rosemary</button>
+      <div class="sub-content">
+        <p><strong>What it helps:</strong> Helps with oily skin and hair.<br>
+        <strong>How to use:</strong> Make an infusion and use as a rinse.</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <p>© 2025 WeBloom by Ouedad</p>
   </footer>
 
   <script>
-    // Collapsible sections toggle
-    const collapsibles = document.querySelectorAll(".collapsible");
-    collapsibles.forEach(button => {
+    document.querySelectorAll(".collapsible").forEach(button => {
       button.addEventListener("click", () => {
         button.classList.toggle("active");
         const content = button.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } 
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
       });
     });
 
-    // Herb suggestions by symptom
-    const herbData = {
-      bloating: `
-        <h4>Herbs for Bloating:</h4>
-        <ul>
-          <li><strong>Mint:</strong> Soothes the stomach and helps reduce gas.</li>
-          <li><strong>Fennel:</strong> Helps relax digestive muscles.</li>
-          <li><strong>Ginger:</strong> Eases digestion and reduces inflammation.</li>
-        </ul>
-      `,
-      stress: `
-        <h4>Herbs for Stress:</h4>
-        <ul>
-          <li><strong>Lavender:</strong> Calms the mind and body.</li>
-          <li><strong>Chamomile:</strong> Relaxes nerves and promotes calm sleep.</li>
-          <li><strong>Rosemary:</strong> Enhances mental clarity and reduces fatigue.</li>
-        </ul>
-      `,
-      headache: `
-        <h4>Herbs for Headaches:</h4>
-        <ul>
-          <li><strong>Feverfew:</strong> Helps prevent migraines.</li>
-          <li><strong>Peppermint:</strong> Provides cooling relief.</li>
-          <li><strong>Willow Bark:</strong> Natural pain reliever.</li>
-        </ul>
-      `,
-      sleep: `
-        <h4>Herbs for Sleep Issues:</h4>
-        <ul>
-          <li><strong>Valerian Root:</strong> Promotes deep sleep.</li>
-          <li><strong>Passionflower:</strong> Reduces anxiety and insomnia.</li>
-          <li><strong>Chamomile:</strong> Gentle sleep aid.</li>
-        </ul>
-      `
-    };
-
-    document.querySelectorAll('.symptom-btn').forEach(button => {
-      button.addEventListener('
+    document.querySelectorAll(".sub-collapsible").forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        const subContent = button.nextElementSibling;
+        subContent.style.maxHeight = subContent.style.maxHeight ? null : subContent.scrollHeight + "px";
+      });
+    });
+  </script>
+</body>
+</html>
