@@ -1,101 +1,179 @@
-<section id="herbs" style="padding: 30px; background-color: #f4fdf4; border-radius: 12px; margin-top: 40px;">
-  <h2 style="color: #2a5d34; text-shadow: 0 0 3px #d4af37;">🌿 Herbs — Nature's Helpers</h2>
-  <p style="color: #3c763d; font-size: 1.1rem;">Not sure what herb to use? Click on what you’re feeling, and I’ll help you out 💚</p>
-
-  <!-- SYMPTOM SELECTOR -->
-  <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
-    <button onclick="showTip('bloating')" style="background-color: #d4af37; color: #fff; padding: 10px 16px; border: none; border-radius: 5px;">Bloating</button>
-    <button onclick="showTip('skin')" style="background-color: #2a5d34; color: #fff; padding: 10px 16px; border: none; border-radius: 5px;">Skin</button>
-    <button onclick="showTip('stress')" style="background-color: #d4af37; color: #fff; padding: 10px 16px; border: none; border-radius: 5px;">Stress</button>
-  </div>
-
-  <div id="tip-box" style="color: #2a5d34; font-weight: bold; padding: 15px; border-left: 5px solid #d4af37; background-color: #eef7ee; border-radius: 5px; margin-bottom: 30px;"></div>
-
-  <!-- COLLAPSIBLE ARTICLES -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WeBloom</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f9f4;
+      color: #2a5d34;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      background: linear-gradient(to right, #2a5d34, #d4af37);
+      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.5);
+      position: relative;
+    }
+
+    /* Sparkle animation for text */
+    .sparkle-text {
+      font-family: 'Sacramento', cursive;
+      font-size: 4rem;
+      font-weight: normal;
+      color: #d4af37; /* golden */
+      background: linear-gradient(90deg, #2a5d34 0%, #d4af37 50%, #2a5d34 100%);
+      background-size: 200% 100%;
+      background-position: 100% 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s infinite;
+      display: inline-block;
+      position: relative;
+      user-select: none;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 100% 0;
+      }
+      50% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 0;
+      }
+    }
+
+    /* About Me section */
+    #about-me {
+      max-width: 700px;
+      margin: 20px auto 40px;
+      background: #e6f0e6;
+      border-radius: 12px;
+      padding: 20px 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      color: #3c763d;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Collapsible Buttons */
     .collapsible {
       background-color: #2a5d34;
-      color: #fff;
+      color: #d4af37;
       cursor: pointer;
-      padding: 14px 18px;
-      width: 100%;
+      padding: 15px 20px;
+      width: 90%;
+      max-width: 700px;
+      margin: 0 auto 10px;
       border: none;
       text-align: left;
       outline: none;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
+      box-shadow: 0 4px 6px rgba(212,175,55,0.5);
       border-radius: 5px;
-      margin-bottom: 5px;
+      user-select: none;
+      transition: background-color 0.3s ease;
     }
 
-    .collapsible:hover {
+    .active, .collapsible:hover {
       background-color: #3c763d;
     }
 
-    .herb-content {
+    .content {
+      max-width: 700px;
+      margin: 0 auto 20px;
       padding: 0 20px;
       max-height: 0;
       overflow: hidden;
-      background-color: #f0f8f0;
+      background-color: #f4f9f4;
       transition: max-height 0.3s ease-out;
-      border-radius: 0 0 6px 6px;
-      margin-bottom: 15px;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    .herb-content p {
-      color: #2a5d34;
+    .content p {
       margin: 15px 0;
+      color: #2a5d34;
     }
 
-    .herb-content img {
+    .content img {
       max-width: 100%;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      box-shadow: 0 0 8px #2a5d34;
+      margin: 15px 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      color: #777;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
     }
   </style>
+</head>
+<body>
+  <header>
+    <h1 class="sparkle-text">WeBloom</h1>
+  </header>
 
-  <button class="collapsible">🌱 Mint for Bloating</button>
-  <div class="herb-content">
-    <p>Moroccan mint tea is the queen of comfort after meals! It helps with digestion and bloating. Just pour hot water on fresh mint and sip slowly 💚</p>
-    <img src="mint-tea.jpg" alt="Mint Tea">
+  <section id="about-me">
+    <p>
+      Hi! I'm just someone who loves to explore herbs, natural care, and simple healthy living.<br/>
+      This space is my way of sharing what I know — from little tips passed down in Morocco to things I've tried myself — with anyone out there searching for gentle, natural solutions.<br/>
+      I'm not here to promise miracles, just to offer honest help and good vibes 🌿💛
+    </p>
+  </section>
+
+  <button class="collapsible">Herbs 🌿</button>
+  <div class="content">
+    <p>As a Moroccan, mint has a special place in our hearts—whether in tea or just hot water.</p>
+    <p>Keep it simple and enjoy it!</p>
+    <img src="mint-tea.jpg" alt="Mint tea in a glass cup" />
   </div>
 
-  <button class="collapsible">🌿 Rosemary for Skin</button>
-  <div class="herb-content">
-    <p>Use rosemary tea as a skin rinse! It’s antibacterial, refreshing, and leaves you glowing 🌞</p>
-    <img src="rosemary.jpg" alt="Rosemary herb">
+  <button class="collapsible">Nutrition 🥗</button>
+  <div class="content">
+    <p>Discover healthy eating tips and nourishing recipes to support your wellbeing.</p>
   </div>
 
-  <button class="collapsible">💜 Lavender for Stress</button>
-  <div class="herb-content">
-    <p>Breathe in lavender or sip a calming tea made with its flowers. It’s like a deep breath for your nervous system 🧘‍♀️</p>
-    <img src="lavender.jpg" alt="Lavender herb">
+  <button class="collapsible">Self Care 💆‍♀️</button>
+  <div class="content">
+    <p>Simple, natural ways to take care of your hair and skin every day.</p>
   </div>
 
-</section>
-
-<script>
-  // Symptom tips
-  function showTip(symptom) {
-    let tips = {
-      bloating: "Try Moroccan mint or fennel seeds after meals. Your tummy will thank you!",
-      skin: "Brew rosemary or thyme and rinse your face. Pure glow!",
-      stress: "Lavender tea or oil can melt away the stress 💆‍♀️"
-    };
-    document.getElementById('tip-box').innerText = tips[symptom];
-  }
-
-  // Collapsible behavior
-  const collapsibles = document.querySelectorAll(".collapsible");
-  collapsibles.forEach(button => {
-    button.addEventListener("click", () => {
-      button.classList.toggle("active");
-      const content = button.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
+  <script>
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        const content = button.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
     });
-  });
-</script>
+  </script>
+
+  <footer>
+    <p>© 2025 WeBloom by Ouedad</p>
+  </footer>
+</body>
+</html>
