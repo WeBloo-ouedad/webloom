@@ -152,22 +152,72 @@
 
   <button class="collapsible">Herbs 🌿</button>
   <div class="content">
-    <p>As a Moroccan, mint has a special place in our hearts — whether in tea or just hot water.</p>
-    <p>Keep it simple and enjoy it!</p>
-    <img src="mint-tea.jpg" alt="Mint tea in a glass cup" />
+  <style>
+  .sub-collapsible {
+    background-color: #e6f0e6;
+    color: #2a5d34;
+    cursor: pointer;
+    padding: 12px 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 17px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
+  }
 
-    <h3 style="color: #2a5d34; margin-top: 30px; text-align:center;">Click on a symptom to see herbal tips:</h3>
+  .sub-collapsible:hover {
+    background-color: #d4efdf;
+  }
 
-    <div id="symptom-buttons">
-      <button class="symptom-btn" data-symptom="bloating">Bloating</button>
-      <button class="symptom-btn" data-symptom="stress">Stress</button>
-      <button class="symptom-btn" data-symptom="headache">Headache</button>
-      <button class="symptom-btn" data-symptom="sleep">Sleep Issues</button>
-    </div>
+  .sub-content {
+    padding: 10px 18px;
+    display: none;
+    background-color: #f4f9f4;
+    border-left: 3px solid #a4c639;
+    margin-bottom: 10px;
+  }
+</style>
 
-    <div id="herb-suggestions">
-      <p>Select a symptom to see herb suggestions.</p>
-    </div>
+<h3 style="color:#2a5d34; margin-top:20px;">Click on your concern to find the best herbs and simple tips:</h3>
+
+<button class="sub-collapsible">Bloating & Digestion</button>
+<div class="sub-content">
+  <p><strong>Herbs:</strong> Mint 🍃, Anise 🌱, Fennel 🌾</p>
+  <p><strong>How to use:</strong> Make a tea with one spoon of herbs, let it sit for 10 mins, and drink warm after meals.</p>
+</div>
+
+<button class="sub-collapsible">Sleep Problems</button>
+<div class="sub-content">
+  <p><strong>Herbs:</strong> Chamomile 🌼, Lavender 💜, Lemon balm 🍋</p>
+  <p><strong>How to use:</strong> Drink before bed, and create a calm bedtime mood 🌙.</p>
+</div>
+
+<button class="sub-collapsible">Stress & Anxiety</button>
+<div class="sub-content">
+  <p><strong>Herbs:</strong> Verbena 🍃, Basil 🌿, Chamomile 🌼</p>
+  <p><strong>How to use:</strong> Breathe in the steam or drink tea slowly during the day.</p>
+</div>
+
+<button class="sub-collapsible">Period Cramps</button>
+<div class="sub-content">
+  <p><strong>Herbs:</strong> Sage 🌿, Rosemary 🌸, Chamomile 🌼</p>
+  <p><strong>How to use:</strong> Warm tea, twice a day during your cycle. Avoid when pregnant.</p>
+</div>
+
+<script>
+  const subButtons = document.querySelectorAll(".sub-collapsible");
+  subButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const content = button.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
+    
   </div>
 
   <button class="collapsible">Nutrition 🥗</button>
